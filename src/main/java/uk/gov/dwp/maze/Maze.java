@@ -2,6 +2,7 @@ package uk.gov.dwp.maze;
 
 import uk.gov.dwp.maze.printer.MazeVisitor;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -47,6 +48,10 @@ public class Maze {
             x++;
         }
         return new Maze(map);
+    }
+
+    public static Maze load(String input) throws IOException {
+        return load(new ByteArrayInputStream(input.getBytes()));
     }
 
     public Location getStartPoint() {

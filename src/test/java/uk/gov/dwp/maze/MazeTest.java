@@ -3,6 +3,8 @@ package uk.gov.dwp.maze;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.InputStream;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
@@ -27,7 +29,7 @@ public class MazeTest {
 
     @Test
     public void requires_non_null_input() {
-        Throwable thrown = catchThrowable(() -> Maze.load(null));
+        Throwable thrown = catchThrowable(() -> Maze.load((InputStream) null));
         assertThat(thrown).hasMessage("Input file not found");
     }
 }
