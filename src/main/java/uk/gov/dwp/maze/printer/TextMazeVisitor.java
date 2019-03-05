@@ -13,6 +13,8 @@ import java.util.function.Function;
 
 public class TextMazeVisitor implements MazeVisitor {
 
+    private final static Function<Entry<Location, Tile>, Integer> byX = entry -> entry.getKey().getX();
+    private final static Function<Entry<Location, Tile>, Integer> byY = entry -> entry.getKey().getY();
     private final static char[] directionGlyphs = {'^', '>', 'v', '<'};
     private Pose pose;
     private int lastY = 0;
@@ -34,8 +36,6 @@ public class TextMazeVisitor implements MazeVisitor {
 
     public void print(PrintStream out) {
         lastY = 0;
-        Function<Entry<Location, Tile>, Integer> byX = entry -> entry.getKey().getX();
-        Function<Entry<Location, Tile>, Integer> byY = entry -> entry.getKey().getY();
         map.entrySet().stream()
             .sorted(Comparator.comparing(byY).thenComparing(byX))
             .forEach(entry -> {
