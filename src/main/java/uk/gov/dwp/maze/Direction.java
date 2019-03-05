@@ -26,12 +26,4 @@ public enum Direction {
         }
         return values[next];
     }
-
-    public Direction rotateLeft() {
-        return rotate(Orientation.Left);
-    }
-
-    public Direction rotateRight() {
-        return rotate(Orientation.Right);
-    }
 }
