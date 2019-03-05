@@ -13,6 +13,7 @@ import java.util.function.Function;
 
 public class TextMazeVisitor implements MazeVisitor {
 
+    private final static char[] directionGlyphs = {'^', '>', 'v', '<'};
     private Pose pose;
     private int lastY = 0;
     private Map<Location, Tile> map;
@@ -51,17 +52,7 @@ public class TextMazeVisitor implements MazeVisitor {
         out.println();
     }
 
-    private String directedPosition() {
-        switch (pose.getDirection()) {
-            case N:
-                return "^";
-            case E:
-                return ">";
-            case S:
-                return "v";
-            case W:
-                return "<";
-        }
-        return "";
+    private char directedPosition() {
+        return directionGlyphs[pose.getDirection().ordinal()];
     }
 }
