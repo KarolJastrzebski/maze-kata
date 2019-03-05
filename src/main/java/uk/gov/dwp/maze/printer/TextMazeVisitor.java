@@ -5,6 +5,7 @@ import uk.gov.dwp.maze.Pose;
 import uk.gov.dwp.maze.Tile;
 import uk.gov.dwp.maze.Tracker;
 
+import java.io.PrintStream;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -30,7 +31,7 @@ public class TextMazeVisitor implements MazeVisitor {
     public void visit(Tracker tracker) {
     }
 
-    public void print() {
+    public void print(PrintStream out) {
         lastY = 0;
         Function<Entry<Location, Tile>, Integer> byX = entry -> entry.getKey().getX();
         Function<Entry<Location, Tile>, Integer> byY = entry -> entry.getKey().getY();
@@ -38,16 +39,16 @@ public class TextMazeVisitor implements MazeVisitor {
             .sorted(Comparator.comparing(byY).thenComparing(byX))
             .forEach(entry -> {
                 if (lastY != entry.getKey().getY()) {
-                    System.out.println();
+                    out.println();
                     lastY = entry.getKey().getY();
                 }
                 if (pose != null && pose.samePositionAs(entry.getKey())) {
-                    System.out.print(directedPosition());
+                    out.print(directedPosition());
                 } else {
-                    System.out.print(entry.getValue().getType());
+                    out.print(entry.getValue().getType());
                 }
             });
-        System.out.println();
+        out.println();
     }
 
     private String directedPosition() {
