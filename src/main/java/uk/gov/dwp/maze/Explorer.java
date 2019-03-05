@@ -1,7 +1,5 @@
 package uk.gov.dwp.maze;
 
-import uk.gov.dwp.maze.printer.MazeVisitor;
-
 import java.util.HashSet;
 import java.util.Set;
 

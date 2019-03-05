@@ -4,7 +4,7 @@ import uk.gov.dwp.maze.Location;
 import uk.gov.dwp.maze.Pose;
 import uk.gov.dwp.maze.Tile;
 import uk.gov.dwp.maze.Tracker;
-import uk.gov.dwp.maze.printer.MazeVisitor;
+import uk.gov.dwp.maze.MazeVisitor;
 
 import java.util.Map;
 

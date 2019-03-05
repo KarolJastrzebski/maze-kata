@@ -1,7 +1,5 @@
 package uk.gov.dwp.maze;
 
-import uk.gov.dwp.maze.printer.MazeVisitor;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
