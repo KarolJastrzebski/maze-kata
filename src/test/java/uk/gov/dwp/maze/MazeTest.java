@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 
 public class MazeTest {
 
@@ -22,5 +23,11 @@ public class MazeTest {
     @Test
     public void top_left_corner_is_a_wall() {
         assertThat(maze.get(new Location(0, 0)).isWall()).isTrue();
+    }
+
+    @Test
+    public void requires_non_null_input() {
+        Throwable thrown = catchThrowable(() -> Maze.load(null));
+        assertThat(thrown).hasMessage("Input file not found");
     }
 }

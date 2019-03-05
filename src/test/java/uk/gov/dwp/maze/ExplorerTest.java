@@ -48,6 +48,18 @@ public class ExplorerTest {
     }
 
     @Test
+    public void can_rotate_right() {
+        explorer.rotateRight();
+        assertThat(explorer.getCurrentPose().getDirection()).isEqualTo(Direction.E);
+    }
+
+    @Test
+    public void can_rotate_left() {
+        explorer.rotateLeft();
+        assertThat(explorer.getCurrentPose().getDirection()).isEqualTo(Direction.W);
+    }
+
+    @Test
     public void cannot_move_into_a_wall() {
         explorer.rotateRight();
         explorer.moveForward();
@@ -59,5 +71,10 @@ public class ExplorerTest {
             Movement.Right,
             Movement.Back
         );
+    }
+
+    @Test
+    public void tracks_location_history() {
+        assertThat(explorer.getTracker().getHistory()).hasSizeGreaterThan(0);
     }
 }
