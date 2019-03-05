@@ -1,4 +1,4 @@
-package uk.gov.dwp.maze.printer;
+package uk.gov.dwp.maze.visitor;
 
 import uk.gov.dwp.maze.Location;
 import uk.gov.dwp.maze.MazeVisitor;
