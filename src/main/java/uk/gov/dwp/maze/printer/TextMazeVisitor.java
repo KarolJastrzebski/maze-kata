@@ -43,8 +43,8 @@ public class TextMazeVisitor implements MazeVisitor {
                     out.println();
                     lastY = entry.getKey().getY();
                 }
-                if (pose != null && pose.samePositionAs(entry.getKey())) {
-                    out.print(directedPosition());
+                if (readyToPrintExplorer(entry)) {
+                    out.print(explorerGlyph());
                 } else {
                     out.print(entry.getValue().getType());
                 }
@@ -52,7 +52,11 @@ public class TextMazeVisitor implements MazeVisitor {
         out.println();
     }
 
-    private char directedPosition() {
+    private boolean readyToPrintExplorer(Entry<Location, Tile> entry) {
+        return pose != null && pose.samePositionAs(entry.getKey());
+    }
+
+    private char explorerGlyph() {
         return directionGlyphs[pose.getDirection().ordinal()];
     }
 }
