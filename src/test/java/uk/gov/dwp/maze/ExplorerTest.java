@@ -31,9 +31,7 @@ public class ExplorerTest {
 
     @Test
     public void can_tell_what_is_in_front() {
-        assertThat(explorer.whatIsInFront())
-            .isInstanceOf(Tile.class)
-            .hasFieldOrPropertyWithValue("type", " ");
+        assertThat(explorer.whatIsInFront()).isEqualTo(Tile.Open);
     }
 
     @Test

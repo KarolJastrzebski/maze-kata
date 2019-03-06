@@ -47,7 +47,7 @@ public class TextMazePrinter implements MazeVisitor {
                 if (readyToPrintExplorer(entry)) {
                     out.print(explorerGlyph());
                 } else {
-                    out.print(entry.getValue().getType());
+                    out.print(entry.getValue().getSymbol());
                 }
             });
         out.println();

@@ -14,7 +14,7 @@ public class Maze {
     public Maze(Map<Location, Tile> map) {
         startPoint = map.entrySet()
             .stream()
-            .filter(positionTileEntry -> positionTileEntry.getValue().isStartPoint())
+            .filter(positionTileEntry -> positionTileEntry.getValue() == Tile.Start)
             .findFirst()
             .orElseThrow(() -> new RuntimeException("Start point not found"))
             .getKey();
@@ -42,7 +42,7 @@ public class Maze {
                 y++;
                 nextLine = false;
             }
-            map.put(new Location(x, y), new Tile(String.valueOf(c)));
+            map.put(new Location(x, y), Tile.fromSymbol(c));
             x++;
         }
         return new Maze(map);

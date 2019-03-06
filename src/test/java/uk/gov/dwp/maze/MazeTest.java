@@ -19,12 +19,12 @@ public class MazeTest {
 
     @Test
     public void starting_position_is_marked_with_S() {
-        assertThat(maze.get(maze.getStartPoint())).hasFieldOrPropertyWithValue("type", "S");
+        assertThat(maze.get(maze.getStartPoint())).isEqualTo(Tile.Start);
     }
 
     @Test
     public void top_left_corner_is_a_wall() {
-        assertThat(maze.get(new Location(0, 0)).isWall()).isTrue();
+        assertThat(maze.get(new Location(0, 0))).isEqualTo(Tile.Wall);
     }
 
     @Test

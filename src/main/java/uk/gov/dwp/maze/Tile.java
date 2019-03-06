@@ -1,30 +1,31 @@
 package uk.gov.dwp.maze;
 
-public class Tile {
+public enum Tile {
+    Wall('X'),
+    Start('S'),
+    Finish('F'),
+    Open(' ');
 
-    private final String type;
+    private final char symbol;
 
-    public Tile(String type) {
-        this.type = type;
+    Tile(char symbol) {
+        this.symbol = symbol;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public boolean isWall() {
-        return type.contentEquals("X");
-    }
-
-    public boolean isStartPoint() {
-        return type.contentEquals("S");
-    }
-
-    public boolean isFinishingPoint() {
-        return type.contentEquals("F");
+    public static Tile fromSymbol(char symbol) {
+        for (Tile value : values()) {
+            if (value.symbol == symbol) {
+                return value;
+            }
+        }
+        return null;
     }
 
     public Location step(Location oldLocation, Location newLocation) {
-        return isWall() ? oldLocation : newLocation;
+        return this == Wall ? oldLocation : newLocation;
+    }
+
+    public char getSymbol() {
+        return symbol;
     }
 }
