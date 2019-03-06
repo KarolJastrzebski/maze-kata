@@ -19,11 +19,15 @@ public class Pose {
     }
 
     public Pose rotateLeft() {
-        return new Pose(location, direction.rotateLeft());
+        return rotate(direction.rotateLeft());
     }
 
     public Pose rotateRight() {
-        return new Pose(location, direction.rotateRight());
+        return rotate(direction.rotateRight());
+    }
+
+    private Pose rotate(Direction newDirection) {
+        return new Pose(location, newDirection);
     }
 
     public Pose move(Movement movement) {
