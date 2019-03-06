@@ -7,5 +7,5 @@ Assumptions and notes
 - Tracker contains history of Pose changes and is able to return set of visited locations.
 - Explorer exists only for one Maze. Teaching Explorer to enter and leave mazes would require refactoring.
 - Maze can have multiple Explorers. Its instance can be shared between Explorers as it's not modified by any of them.
-- TextMazeVisitor allows for printing a maze along with Explorer on the map.
+- TextMazePrinter allows for printing a maze along with Explorer on the map.
 - As usual, tests should tell the story.

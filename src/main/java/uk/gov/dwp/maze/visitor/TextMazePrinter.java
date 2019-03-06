@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.function.Function;
 
-public class TextMazeVisitor implements MazeVisitor {
+public class TextMazePrinter implements MazeVisitor {
 
     private final static Function<Entry<Location, Tile>, Integer> byX = entry -> entry.getKey().getX();
     private final static Function<Entry<Location, Tile>, Integer> byY = entry -> entry.getKey().getY();
