@@ -7,8 +7,10 @@ Assumptions and notes
 - Maze can have any shape, not only rectangular. Although, haven't tested for
   edge cases.
 
-- Finish point is not required. Explorer can step onto that field without any
-  consequences.
+- Minimal maze consists just of the starting point.
+
+- Finish point is not handled as wasn't part of the acceptance criteria.
+  Explorer can step onto that field without any consequences.
 
 - Tracker contains history of Pose changes and is able to return set of visited
   locations.
