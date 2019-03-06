@@ -16,14 +16,15 @@ public enum Direction {
         return relativeMovement;
     }
 
-    public Direction rotate(Orientation orientation) {
-        Direction[] values = values();
-        int next = ordinal() + orientation.getTowards();
-        if (next < 0) {
-            next = values.length - 1;
-        } else if (next == values.length) {
-            next = 0;
-        }
-        return values[next];
+    public Direction rotateRight() {
+        return rotate(1);
+    }
+
+    public Direction rotateLeft() {
+        return rotate(3);
+    }
+
+    private Direction rotate(int i) {
+        return values()[(ordinal() + i) % 4];
     }
 }

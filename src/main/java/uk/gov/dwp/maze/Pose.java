@@ -19,17 +19,17 @@ public class Pose {
     }
 
     public Pose rotateLeft() {
-        return new Pose(location, direction.rotate(Orientation.Left));
+        return new Pose(location, direction.rotateLeft());
     }
 
     public Pose rotateRight() {
-        return new Pose(location, direction.rotate(Orientation.Right));
+        return new Pose(location, direction.rotateRight());
     }
 
     public Pose move(Movement movement) {
         Direction facing = direction;
         for (int i = 0; i < movement.ordinal(); i++) {
-            facing = facing.rotate(Orientation.Right);
+            facing = facing.rotateRight();
         }
         return new Pose(location.towards(facing), direction);
     }
