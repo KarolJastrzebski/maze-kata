@@ -16,7 +16,7 @@ public class Maze {
             .stream()
             .filter(positionTileEntry -> positionTileEntry.getValue().isStartPoint())
             .findFirst()
-            .orElseThrow(() -> new RuntimeException("Missing starting point"))
+            .orElseThrow(() -> new RuntimeException("Start point not found"))
             .getKey();
 
         this.map = map;

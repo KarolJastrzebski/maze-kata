@@ -32,4 +32,10 @@ public class MazeTest {
         Throwable thrown = catchThrowable(() -> Maze.load((InputStream) null));
         assertThat(thrown).hasMessage("Input file not found");
     }
+
+    @Test
+    public void requires_at_least_a_start_point() {
+        Throwable thrown = catchThrowable(() -> Maze.load("X"));
+        assertThat(thrown).hasMessage("Start point not found");
+    }
 }
