@@ -31,14 +31,10 @@ public class Pose {
         for (int i = 0; i < movement.ordinal(); i++) {
             facing = facing.rotateRight();
         }
-        return new Pose(location.towards(facing), direction);
+        return move(location.towards(facing));
     }
 
-    public Pose moveForward() {
-        return move(Movement.Forward);
-    }
-
-    public Pose moveTo(Location newLocation) {
+    public Pose move(Location newLocation) {
         return new Pose(newLocation, direction);
     }
 

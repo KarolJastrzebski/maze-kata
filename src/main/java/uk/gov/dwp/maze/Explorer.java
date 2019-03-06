@@ -40,12 +40,12 @@ public class Explorer {
     }
 
     public void moveForward() {
-        pose = pose.moveTo(navigate(Movement.Forward));
+        pose = pose.move(navigate(Movement.Forward));
         trackPose();
     }
 
     public Tile whatIsInFront() {
-        return maze.get(pose.moveForward().getLocation());
+        return maze.get(pose.move(Movement.Forward).getLocation());
     }
 
     public Set<Movement> movementOptions() {
