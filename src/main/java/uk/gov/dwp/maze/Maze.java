@@ -11,7 +11,7 @@ public class Maze {
     private final Location startPoint;
     private Map<Location, Tile> map;
 
-    public Maze(Map<Location, Tile> map) {
+    private Maze(Map<Location, Tile> map) {
         startPoint = map.entrySet()
             .stream()
             .filter(positionTileEntry -> positionTileEntry.getValue() == Tile.Start)
